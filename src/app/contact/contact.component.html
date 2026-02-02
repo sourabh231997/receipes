@@ -1,0 +1,84 @@
+<app-header></app-header>
+<section class="about_banner">
+    <div class="container">
+        <div class="common_heading_banner">
+            <h1>Contact Us</h1>
+            <p class="bread_wrap"><a routerLink="/" class="home_bread">Home</a> / Contact us</p>
+        </div>
+    </div>
+</section>
+<section class="common_padding taste_abt">
+    <div class="container">
+        <div class="heading_main">
+            <h3>Contact us</h3>
+            <p>We're here to help and answer any question you might have.We look forward to hear you.</p>
+            <img src="../../assets/img/star-img.png" class="img-fluid">
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="info_contact">
+                   <ul>
+                       <li>
+                           <h4><i class="fa fa-phone"></i> Call Us</h4>
+                           <p><a href="tel:9634427404">+91- 9634427404</a></p>
+                       </li>
+                       <li>
+                        <h4><i class="fa fa-envelope"></i> Email Us</h4>
+                        <p><a href="tel:9634427404">sourabh.ghildiyal01@gmail.com</a></p>
+                    </li>
+                    <li>
+                        <h4><i class="fa fa-map-marker"></i> Address</h4>
+                        <p>Supertech Ecociti Noida Sector 137</p>
+                    </li>
+                   </ul>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form_wrap_cont">
+                    <form name="form" (ngSubmit)="f.form.valid && sendMail(f)" #f="ngForm" novalidate>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="user_name" id="user_name" [(ngModel)]="model.user_name" placeholder="Name" #user_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && user_name.invalid }" required>
+                                    <div *ngIf="f.submitted && user_name.invalid" class="invalid-feedback">
+                                        <div *ngIf="user_name.errors?.['required']">Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Email" name="email" id="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
+                                    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                        <div *ngIf="email.errors?.['required']">Email is required</div>
+                                        <div *ngIf="email.errors?.['email']">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone" name="phone" id="phone" [(ngModel)]="model.phone" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required minlength="10" maxlength="10">
+                                    <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+                                        <div *ngIf="phone.errors?.['required']">Phone number is required</div>
+                                        <div *ngIf="phone.errors?.['minlength']">Phone number must be at least 10 characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                   <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Message" name="message" id="message" [(ngModel)]="model.message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                   <button class="btn btn-primary submit_contact w-25">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>        
+<app-footer></app-footer>
